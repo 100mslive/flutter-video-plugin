@@ -6,7 +6,6 @@ import io.flutter.plugin.common.MethodChannel.Result
 import live.hms.hmssdk_flutter.HMSCommonAction
 import live.hms.hmssdk_flutter.HMSErrorLogger
 import live.hms.video.sdk.HMSSDK
-import live.hms.video.virtualbackground.HMSBlurFilter
 import live.hms.video.virtualbackground.HMSVirtualBackground
 
 class HMSVirtualBackgroundAction {
@@ -38,13 +37,27 @@ class HMSVirtualBackgroundAction {
             imageByteArray?.let { imageBitmap ->
                 val vbImage = BitmapFactory.decodeByteArray(imageBitmap, 0, imageBitmap.size)
                 hmssdk?.let {_hmssdk ->
-                    virtualBackgroundPlugin = HMSVirtualBackground(_hmssdk, vbImage)
-                    _hmssdk.addPlugin(virtualBackgroundPlugin!!,HMSCommonAction.getActionListener(result))
+
+                    /**
+                     * If [virtualBackgroundPlugin] is null we set the virtualBackgroundPlugin
+                     * and then call the [enableBackground] method
+                     * else we directly call the [enableBackground] method
+                     */
+                    if(virtualBackgroundPlugin == null){
+                        virtualBackgroundPlugin = HMSVirtualBackground(_hmssdk)
+                        hmssdk.addPlugin(virtualBackgroundPlugin!!,HMSCommonAction.getActionListener(result))
+                        virtualBackgroundPlugin?.enableBackground(vbImage)
+                    }else{
+                        virtualBackgroundPlugin?.enableBackground(vbImage)
+                        result.success(null)
+                    }
                 }?:run{
                     HMSErrorLogger.logError("enableVirtualBackground","hmssdk is null","NULL ERROR")
+                    result.success(null)
                 }
             }?:run{
                 HMSErrorLogger.returnArgumentsError("image can't be null")
+                result.success(null)
             }
         }
 
@@ -52,9 +65,11 @@ class HMSVirtualBackgroundAction {
             val imageByteArray: ByteArray? = call.argument<ByteArray?>("image")
             imageByteArray?.let { imageBitmap ->
                 val vbImage = BitmapFactory.decodeByteArray(imageBitmap, 0, imageBitmap.size)
-                virtualBackgroundPlugin?.setBackground(vbImage)
+                virtualBackgroundPlugin?.enableBackground(vbImage)
+                result.success(null)
             }?:run{
                 HMSErrorLogger.returnArgumentsError("image can't be null")
+                result.success(null)
             }
             result.success(null)
         }
@@ -65,25 +80,35 @@ class HMSVirtualBackgroundAction {
                     _hmssdk.removePlugin(_virtualBackgroundPlugin,HMSCommonAction.getActionListener(result))
                 }?:run{
                     HMSErrorLogger.logError("disableVirtualBackground","No virtual background plugin found","NULL ERROR")
+                    result.success(null)
                 }
             }?:run{
                 HMSErrorLogger.logError("disableVirtualBackground","hmssdk is null","NULL ERROR")
+                result.success(null)
             }
         }
 
-        /**
-         * [blurFilterPlugin] stores the blur filter
-         */
-        private var blurFilterPlugin: HMSBlurFilter? = null
         private fun enableBlur(call: MethodCall, result: Result, hmssdk: HMSSDK?){
             val blurRadius = call.argument<Int>("blur_radius")
 
             blurRadius?.let { _blurRadius ->
                 hmssdk?.let { _hmssdk ->
-                    blurFilterPlugin = HMSBlurFilter(_hmssdk,_blurRadius)
-                    _hmssdk.addPlugin(blurFilterPlugin!!,HMSCommonAction.getActionListener(result))
+                    /**
+                     * If [virtualBackgroundPlugin] is null we set the virtualBackgroundPlugin
+                     * and then call the [enableBlur] method
+                     * else we directly call the [enableBlur] method
+                     */
+                    if(virtualBackgroundPlugin == null){
+                        virtualBackgroundPlugin = HMSVirtualBackground(_hmssdk)
+                        hmssdk.addPlugin(virtualBackgroundPlugin!!,HMSCommonAction.getActionListener(result))
+                        virtualBackgroundPlugin?.enableBlur(_blurRadius)
+                    }else{
+                        virtualBackgroundPlugin?.enableBlur(_blurRadius)
+                        result.success(null)
+                    }
                 }?:run{
                     HMSErrorLogger.logError("enableBlur","hmssdk is null","NULL ERROR")
+                    result.success(null)
                 }
             }?: run {
                 HMSErrorLogger.returnArgumentsError("blurRadius can't be null")
@@ -93,13 +118,15 @@ class HMSVirtualBackgroundAction {
 
         private fun disableBlur(result: Result, hmssdk: HMSSDK?){
             hmssdk?.let {_hmssdk ->
-                blurFilterPlugin?.let {
+                virtualBackgroundPlugin?.let {
                     _hmssdk.removePlugin(it,HMSCommonAction.getActionListener(result))
                 }?: run {
                     HMSErrorLogger.logError("disableBlur","No blur plugin found","NULL ERROR")
+                    result.success(null)
                 }
             }?:run{
                 HMSErrorLogger.logError("disableBlur","hmssdk is null","NULL ERROR")
+                result.success(null)
             }
         }
 
@@ -107,7 +134,7 @@ class HMSVirtualBackgroundAction {
             virtualBackgroundPlugin?.let {_virtualBackgroundPlugin ->
                 result.success(HMSResultExtension.toDictionary(true,_virtualBackgroundPlugin.isSupported()))
             }?:run{
-                result.success(HMSResultExtension.toDictionary(true,false))
+                result.success(HMSResultExtension.toDictionary(success = true, data = false))
             }
         }
     }
