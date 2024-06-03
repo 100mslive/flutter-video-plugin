@@ -50,11 +50,8 @@ android {
     dependencies {
         testImplementation 'org.jetbrains.kotlin:kotlin-test'
         testImplementation 'org.mockito:mockito-core:5.0.0'
-        implementation 'com.github.100mslive.android-sdk:android-sdk:dev-v2-SNAPSHOT'
-        implementation 'com.github.100mslive.android-sdk:virtual-background:dev-v2-SNAPSHOT'
-        //
-//        implementation "live.100ms:virtual-background:${sdkVersions['android']}"
-//        implementation "live.100ms:android-sdk:${sdkVersions['android']}"
+        implementation "live.100ms:virtual-background:${sdkVersions['android']}"
+        implementation "live.100ms:android-sdk:${sdkVersions['android']}"
         implementation project(":hmssdk_flutter")
     }
 
