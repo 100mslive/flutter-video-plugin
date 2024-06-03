@@ -17,7 +17,7 @@ dependencies:
   hmssdk_flutter:
     git:
       url: https://github.com/100mslive/100ms-flutter.git
-      ref: FLUT-318
+      ref: release-1.10.3
       path: packages/hmssdk_flutter
 
 dev_dependencies:
