@@ -18,7 +18,7 @@ class HMSVirtualBackgroundAction {
             hmssdk: HMSSDK?,
         ){
             when(call.method){
-                "is_virtual_background_supported" -> isSupported(result)
+                "is_virtual_background_supported" -> isSupported(result,hmssdk)
                 "enable_virtual_background" -> enable(call, result, hmssdk)
                 "disable_virtual_background" -> disable(result, hmssdk)
                 "enable_blur_background" -> enableBlur(call, result, hmssdk)
@@ -78,6 +78,7 @@ class HMSVirtualBackgroundAction {
             hmssdk?.let {_hmssdk ->
                 virtualBackgroundPlugin?.let { _virtualBackgroundPlugin ->
                     _hmssdk.removePlugin(_virtualBackgroundPlugin,HMSCommonAction.getActionListener(result))
+                    virtualBackgroundPlugin = null
                 }?:run{
                     HMSErrorLogger.logError("disableVirtualBackground","No virtual background plugin found","NULL ERROR")
                     result.success(null)
@@ -120,6 +121,7 @@ class HMSVirtualBackgroundAction {
             hmssdk?.let {_hmssdk ->
                 virtualBackgroundPlugin?.let {
                     _hmssdk.removePlugin(it,HMSCommonAction.getActionListener(result))
+                    virtualBackgroundPlugin = null
                 }?: run {
                     HMSErrorLogger.logError("disableBlur","No blur plugin found","NULL ERROR")
                     result.success(null)
@@ -130,7 +132,24 @@ class HMSVirtualBackgroundAction {
             }
         }
 
-        private fun isSupported(result: Result){
+        /**
+         * [isSupported] method can be used to check whether virtual background is supported or not
+         */
+        private fun isSupported(result: Result, hmssdk: HMSSDK?){
+
+            /**
+             * If [virtualBackgroundPlugin] is null we set the plugin else we just return the result
+             * of `isSupported` method
+             */
+            if(virtualBackgroundPlugin == null){
+                hmssdk?.let {
+                    virtualBackgroundPlugin = HMSVirtualBackground(hmssdk)
+                }?:run {
+                    HMSErrorLogger.logError("disableBlur","hmssdk is null","NULL ERROR")
+                    result.success(HMSResultExtension.toDictionary(success = false, data = false))
+                    return
+                }
+            }
             virtualBackgroundPlugin?.let {_virtualBackgroundPlugin ->
                 result.success(HMSResultExtension.toDictionary(true,_virtualBackgroundPlugin.isSupported()))
             }?:run{
