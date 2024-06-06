@@ -142,8 +142,8 @@ class HMSVirtualBackgroundAction {
              * of `isSupported` method
              */
             if(virtualBackgroundPlugin == null){
-                hmssdk?.let {
-                    virtualBackgroundPlugin = HMSVirtualBackground(hmssdk)
+                hmssdk?.let { _hmssdk ->
+                    virtualBackgroundPlugin = HMSVirtualBackground(_hmssdk)
                 }?:run {
                     HMSErrorLogger.logError("disableBlur","hmssdk is null","NULL ERROR")
                     result.success(HMSResultExtension.toDictionary(success = false, data = false))
