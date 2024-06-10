@@ -12,7 +12,16 @@ import 'package:hms_video_plugin/src/enum/plugin_method.dart';
 import 'package:hms_video_plugin/src/platform_service.dart';
 
 ///[HMSVideoPlugin] is the entry point for the plugin.
+///It provides methods to enable, disable, change virtual background and blur background.
 abstract class HMSVideoPlugin {
+
+  ///[enable] enables virtual background with the given image
+  ///
+  ///**parameters
+  ///
+  ///**image** - is the image to be used as virtual background
+  ///
+  ///Refer [enable] Docs [here](Add link)
   static Future<HMSException?> enable({required Uint8List? image}) async {
     if (Platform.isAndroid) {
       var result = await PlatformService.invokeMethod(
@@ -28,6 +37,14 @@ abstract class HMSVideoPlugin {
     }
   }
 
+  ///[changeVirtualBackground] changes the virtual background with the given image
+  ///
+  ///**parameters**
+  ///
+  ///**image** - is the new image to be used as virtual background
+  ///
+  ///Note: This method can be used only if virtual background is already enabled
+  ///Refer [changeVirtualBackground] Docs [here](Add link)
   static Future<void> changeVirtualBackground(
       {required Uint8List? image}) async {
     if (Platform.isAndroid) {
@@ -38,6 +55,9 @@ abstract class HMSVideoPlugin {
     }
   }
 
+  ///[isSupported] returns whether virtual background is supported or not
+  ///
+  ///Refer [isSupported] Docs [here](Add link)
   static Future<bool> isSupported() async {
     if (Platform.isAndroid) {
       var result = await PlatformService.invokeMethod(
@@ -52,6 +72,9 @@ abstract class HMSVideoPlugin {
     }
   }
 
+  ///[disable] disables virtual background
+  ///
+  ///Refer [disable] Docs [here](Add link)
   static Future<HMSException?> disable() async {
     if (Platform.isAndroid) {
       var result = await PlatformService.invokeMethod(
@@ -66,6 +89,13 @@ abstract class HMSVideoPlugin {
     }
   }
 
+  ///[enableBlur] enables blur with the given blur radius
+  ///
+  ///**parameters**
+  ///
+  ///**blurRadius** - is the radius of the blur effect
+  ///
+  ///Refer [enableBlur] Docs [here](Add link)
   static Future<HMSException?> enableBlur({required int blurRadius}) async {
     if (Platform.isAndroid) {
       var result = await PlatformService.invokeMethod(
@@ -81,6 +111,9 @@ abstract class HMSVideoPlugin {
     }
   }
 
+  ///[disableBlur] disables blur
+  ///
+  ///Refer [disableBlur] Docs [here](Add link)
   static Future<HMSException?> disableBlur() async {
     if (Platform.isAndroid) {
       var result = await PlatformService.invokeMethod(

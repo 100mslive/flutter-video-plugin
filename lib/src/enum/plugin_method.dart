@@ -1,5 +1,6 @@
 library;
 
+///[PluginMethod] enum contains all the methods that are supported by the plugin.
 enum PluginMethod {
   enableVirtualBackground,
   disableVirtualBackground,
