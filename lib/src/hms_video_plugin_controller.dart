@@ -14,7 +14,6 @@ import 'package:hms_video_plugin/src/platform_service.dart';
 ///[HMSVideoPlugin] is the entry point for the plugin.
 ///It provides methods to enable, disable, change virtual background and blur background.
 abstract class HMSVideoPlugin {
-
   ///[enable] enables virtual background with the given image
   ///
   ///**parameters
