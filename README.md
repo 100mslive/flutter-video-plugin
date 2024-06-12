@@ -1,6 +1,6 @@
 # 100ms Video Plugin
 
-[![Pub Version](https://img.shields.io/pub/v/hmssdk_flutter)](https://pub.dev/packages/hmssdk_flutter)
+[![Pub Version](https://img.shields.io/pub/v/hms_video_plugin)](https://pub.dev/packages/hms_video_plugin)
 [![Build](https://github.com/100mslive/100ms-flutter/actions/workflows/build.yml/badge.svg?branch=develop)](https://github.com/100mslive/100ms-flutter/actions/workflows/build.yml)
 [![License](https://img.shields.io/github/license/100mslive/100ms-flutter)](https://www.100ms.live/)
 [![Documentation](https://img.shields.io/badge/Read-Documentation-blue)](https://docs.100ms.live/flutter/v2/foundation/basics)
