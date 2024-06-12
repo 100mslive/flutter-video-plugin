@@ -28,6 +28,11 @@ Integrate virtual backgrounds, blur backgrounds effects in your Flutter app with
 
 🤖 Android app on Google Play Store: <https://play.google.com/store/apps/details?id=live.hms.flutter>
 
+<div align="center">
+  <video src="https://github.com/100mslive/flutter-video-plugin/assets/93931528/c44c4501-dd70-4d92-a23d-06fee1872278" controls >
+</div>
+
+
 ## 🚂 Setup Guide
 
 1. Sign up on <https://dashboard.100ms.live/register> & visit the Developer tab to access your credentials.
