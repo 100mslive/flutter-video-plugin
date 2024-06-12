@@ -103,11 +103,10 @@ packages:
   hmssdk_flutter:
     dependency: transitive
     description:
-      path: "packages/hmssdk_flutter"
-      ref: FLUT-318
-      resolved-ref: "75b35ed3b2da17b0c0c8ece19ccb3b7fa0321f67"
-      url: "https://github.com/100mslive/100ms-flutter.git"
-    source: git
+      name: hmssdk_flutter
+      sha256: b1c3e2e9e50bff07831f77c948e4db46ded3b582304aa74b2019e4f8750fcfe1
+      url: "https://pub.dev"
+    source: hosted
     version: "1.10.3"
   integration_test:
     dependency: "direct dev"

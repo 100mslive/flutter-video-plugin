@@ -31,12 +31,16 @@ class HmsVideoFilterPlugin: FlutterPlugin, MethodCallHandler {
   override fun onMethodCall(call: MethodCall, result: Result) {
     when (call.method) {
         "enable_virtual_background", "disable_virtual_background", "enable_blur_background", "disable_blur_background", "change_virtual_background", "is_virtual_background_supported" -> {
-            if(hmssdk == null){
-                hmssdkFlutterPlugin = engine?.plugins?.get(HmssdkFlutterPlugin::class.java) as HmssdkFlutterPlugin
-                hmssdkFlutterPlugin?.let {
-                    it as HmssdkFlutterPlugin
-                    hmssdk = it.hmssdk
-                }
+
+            /**
+             * This is required to be reassigned because after calling leave new HMSSDK instance
+             * is created but since [onAttachedToEngine] is called only once we need to refetch the instance of newer
+             * HMSSDK
+             */
+            hmssdkFlutterPlugin = engine?.plugins?.get(HmssdkFlutterPlugin::class.java) as HmssdkFlutterPlugin
+            hmssdkFlutterPlugin?.let {
+                it as HmssdkFlutterPlugin
+                hmssdk = it.hmssdk
             }
             HMSVirtualBackgroundAction.virtualBackgroundActions(call, result, hmssdk)
         }
