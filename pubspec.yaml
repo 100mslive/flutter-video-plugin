@@ -14,8 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
-  hmssdk_flutter:
-    path: ../100ms-flutter/packages/hmssdk_flutter
+  hmssdk_flutter: 1.10.3
 
 dev_dependencies:
   flutter_test:
