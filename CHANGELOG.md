@@ -6,6 +6,17 @@
 | hmssdk_flutter | [![Pub Version](https://img.shields.io/pub/v/hmssdk_flutter)](https://pub.dev/packages/hmssdk_flutter) |
 | hms_video_plugin | [![Pub Version](https://img.shields.io/pub/v/hms_video_plugin)](https://pub.dev/packages/hms_video_plugin) |
 
+# 0.0.2
+
+| Package                                | Version                                                                                                                                  |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| hmssdk_flutter              | 1.10.4 |
+| hms_room_kit                | 1.1.4  |
+| hms_video_plugin            | 0.0.2  |
+
+- Updated package description
+
+Uses `hmssdk_flutter` package version 1.10.3
 
 # 0.0.1
 
