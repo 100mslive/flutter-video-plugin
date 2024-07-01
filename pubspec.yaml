@@ -1,6 +1,6 @@
 name: hms_video_plugin
-description: Integrate virtual backgrounds, blur backgrounds effects in your Flutter app with the 100ms Video Plugin. 100ms video plugin enabled adding virtual backgrounds, blur backgrounds, and other video filters to your 100ms video conferencing app.
-version: 0.0.1
+description: Integrate virtual backgrounds, blur backgrounds effects in your Flutter app with the 100ms Video Plugin.
+version: 0.0.2
 homepage: https://www.100ms.live/
 repository: https://github.com/100mslive/flutter-video-plugin
 issue_tracker: https://github.com/100mslive/flutter-video-plugin/issues
