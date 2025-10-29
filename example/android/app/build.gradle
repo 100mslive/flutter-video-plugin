@@ -24,15 +24,16 @@ if (flutterVersionName == null) {
 
 android {
     namespace "live.hms.hms_video_filter_example"
-    compileSdkVersion 34
+    compileSdk 36
+    ndkVersion = "27.2.12479018"
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 
     sourceSets {
@@ -44,8 +45,8 @@ android {
         applicationId "live.hms.hms_video_filter_example"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion 34
+        minSdk 24
+        targetSdk 36
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }

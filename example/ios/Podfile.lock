@@ -1,0 +1,114 @@
+PODS:
+  - Flutter (1.0.0)
+  - hms_video_plugin (0.1.0):
+    - Flutter
+    - HMSSDK (= 1.17.0)
+  - HMSAnalyticsSDK (0.0.2)
+  - HMSBroadcastExtensionSDK (1.0.1)
+  - HMSHLSPlayerSDK (0.0.2):
+    - HMSAnalyticsSDK (= 0.0.2)
+  - HMSNoiseCancellationModels (1.0.0)
+  - HMSSDK (1.17.0):
+    - HMSAnalyticsSDK (= 0.0.2)
+    - HMSWebRTC (= 1.0.6174)
+  - hmssdk_flutter (1.11.0):
+    - Flutter
+    - HMSBroadcastExtensionSDK (= 1.0.1)
+    - HMSHLSPlayerSDK (= 0.0.2)
+    - HMSNoiseCancellationModels (= 1.0.0)
+    - HMSSDK (= 1.17.0)
+  - HMSWebRTC (1.0.6174)
+  - image_picker_ios (0.0.1):
+    - Flutter
+  - integration_test (0.0.1):
+    - Flutter
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - permission_handler_apple (9.3.0):
+    - Flutter
+  - pointer_interceptor_ios (0.0.1):
+    - Flutter
+  - share_plus (0.0.1):
+    - Flutter
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - url_launcher_ios (0.0.1):
+    - Flutter
+  - webview_flutter_wkwebview (0.0.1):
+    - Flutter
+    - FlutterMacOS
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - hms_video_plugin (from `.symlinks/plugins/hms_video_plugin/ios`)
+  - hmssdk_flutter (from `.symlinks/plugins/hmssdk_flutter/ios`)
+  - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+  - pointer_interceptor_ios (from `.symlinks/plugins/pointer_interceptor_ios/ios`)
+  - share_plus (from `.symlinks/plugins/share_plus/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
+  - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
+  - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/darwin`)
+
+SPEC REPOS:
+  trunk:
+    - HMSAnalyticsSDK
+    - HMSBroadcastExtensionSDK
+    - HMSHLSPlayerSDK
+    - HMSNoiseCancellationModels
+    - HMSSDK
+    - HMSWebRTC
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  hms_video_plugin:
+    :path: ".symlinks/plugins/hms_video_plugin/ios"
+  hmssdk_flutter:
+    :path: ".symlinks/plugins/hmssdk_flutter/ios"
+  image_picker_ios:
+    :path: ".symlinks/plugins/image_picker_ios/ios"
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
+  pointer_interceptor_ios:
+    :path: ".symlinks/plugins/pointer_interceptor_ios/ios"
+  share_plus:
+    :path: ".symlinks/plugins/share_plus/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
+  url_launcher_ios:
+    :path: ".symlinks/plugins/url_launcher_ios/ios"
+  webview_flutter_wkwebview:
+    :path: ".symlinks/plugins/webview_flutter_wkwebview/darwin"
+
+SPEC CHECKSUMS:
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  hms_video_plugin: 95dd4e92023e522c13cf0af4c57613a57d81eda2
+  HMSAnalyticsSDK: 4d2a88a729b1eb42f3d25f217c28937ec318a5b7
+  HMSBroadcastExtensionSDK: b32e14990cffd773fb5b5219a4dd56b05bef3b29
+  HMSHLSPlayerSDK: 6a54ad4d12f3dc2270d1ecd24019d71282a4f6a3
+  HMSNoiseCancellationModels: a3bda1405a16015632f4bcabd46ce48f35103b02
+  HMSSDK: 949917ebecb66845558407f8e3b3bfeef5332b02
+  hmssdk_flutter: 96273fdca084b47a04bb4fd05a981a799907c7fb
+  HMSWebRTC: 2a9db363e4bfb2d633ab688c04f47ec20767b4ac
+  image_picker_ios: e0ece4aa2a75771a7de3fa735d26d90817041326
+  integration_test: 4a889634ef21a45d28d50d622cf412dc6d9f586e
+  path_provider_foundation: bb55f6dbba17d0dccd6737fe6f7f34fbd0376880
+  permission_handler_apple: 4ed2196e43d0651e8ff7ca3483a069d469701f2d
+  pointer_interceptor_ios: da06a662d5bfd329602b45b2ab41bc0fb5fdb0f0
+  share_plus: 50da8cb520a8f0f65671c6c6a99b3617ed10a58a
+  shared_preferences_foundation: 7036424c3d8ec98dfe75ff1667cb0cd531ec82bb
+  url_launcher_ios: 7a95fa5b60cc718a708b8f2966718e93db0cef1b
+  webview_flutter_wkwebview: 8ebf4fded22593026f7dbff1fbff31ea98573c8d
+
+PODFILE CHECKSUM: 2fa5d735a280b0fa8acde343c799806347caa79d
+
+COCOAPODS: 1.16.2
