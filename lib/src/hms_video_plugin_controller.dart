@@ -71,6 +71,31 @@ abstract class HMSVideoPlugin {
     }
   }
 
+  ///[preInitialize] pre-initializes the virtual background plugin
+  ///by creating it and adding it to the SDK video processing pipeline.
+  ///
+  ///This method should be called after onJoin or onPreview callbacks
+  ///to ensure the plugin is ready before the user attempts to enable
+  ///blur or virtual background effects.
+  ///
+  ///Returns [HMSException] if initialization fails, null on success.
+  static Future<HMSException?> preInitialize() async {
+    if (Platform.isAndroid) {
+      var result = await PlatformService.invokeMethod(
+          PluginMethod.preInitializeVirtualBackground);
+      if (result != null) {
+        return HMSException.fromMap(result["error"]);
+      } else {
+        return null;
+      }
+    } else {
+      // For iOS, initialization happens automatically
+      // Just check support to initialize the plugin
+      await HMSVideoFilter.isSupported();
+      return null;
+    }
+  }
+
   ///[disable] disables virtual background
   ///
   ///Refer [disable] Docs [here](https://www.100ms.live/docs/flutter/v2/how-to-guides/extend-capabilities/virtual-background#step-6-to-disable-virtual-background-use-disable-methods)

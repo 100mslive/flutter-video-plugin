@@ -30,7 +30,7 @@ class HmsVideoFilterPlugin: FlutterPlugin, MethodCallHandler {
 
   override fun onMethodCall(call: MethodCall, result: Result) {
     when (call.method) {
-        "enable_virtual_background", "disable_virtual_background", "enable_blur_background", "disable_blur_background", "change_virtual_background", "is_virtual_background_supported" -> {
+        "enable_virtual_background", "disable_virtual_background", "enable_blur_background", "disable_blur_background", "change_virtual_background", "is_virtual_background_supported", "pre_initialize_virtual_background" -> {
 
             /**
              * This is required to be reassigned because after calling leave new HMSSDK instance
