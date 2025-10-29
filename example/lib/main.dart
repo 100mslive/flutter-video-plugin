@@ -51,7 +51,7 @@ class _StartScreenState extends State<StartScreen> {
       if (cameraStatus.isGranted && microphoneStatus.isGranted) {
         // Navigate to HMSPrebuilt
         if (mounted) {
-          Navigator.of(context).pushReplacement(
+          Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => HMSPrebuilt(
                 roomCode: "cte-xyht-skd",
