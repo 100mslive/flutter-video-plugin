@@ -1,9 +1,7 @@
 name: hms_video_plugin_example
 description: Demonstrates how to use the hms_video_plugin plugin.
 
-# The following line prevents the package from being accidentally published to
-# pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: "none" # Remove this line if you wish to publish to pub.dev
+publish_to: "none"
 version: 0.1.0
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -15,8 +13,7 @@ dependencies:
   hms_video_plugin:
     path: ../
 
-  hms_room_kit:
-    path: /Users/yogesh/Programming/100ms-flutter/packages/hms_room_kit
+  hms_room_kit: 1.2.0
 
   permission_handler: ^12.0.1
   cupertino_icons: ^1.0.2
@@ -28,9 +25,5 @@ dev_dependencies:
     sdk: flutter
   lints: ^6.0.0
 
-# The following section is specific to Flutter.
 flutter:
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
